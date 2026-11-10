@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grid Cards</title>
+        <link rel="stylesheet" href="../lab3/style.css">
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                padding: 20px;
+                background-color: whitesmoke;
+            }
+
+            .container {
+                width: 100%;
+                min-height: 430px;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .card {
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                padding: 8px;
+                background-color: white;
+
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+            }
+
+            .large {
+                grid-column: span 2;
+            }
+
+            #bg {
+                width: 100%;
+                aspect-ratio: 3 / 2;
+
+                background-color: darkgray;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                color: lightgray;
+                font-size: 20px;
+            }
+
+            .title {
+                margin-top: 10px;
+                margin-bottom: 15px;
+                font-weight: bold;
+                font-family: system-ui, sans-serif;
+            }
+
+            p {
+                font-weight: 200;
+                font-size: 12px;
+                line-height: 1.2;
+            }
+
+            button {
+                margin-top: auto;
+                width: 100%;
+                padding: 7px;
+
+                border: none;
+                border-radius: 10px;
+                background-color: darkgray;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="card large">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+            <div class="card">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+            <div class="card">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+            <div class="card">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+            <div class="card">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+            <div class="card large">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+            <div class="card">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+            <div class="card">
+                <div id="bg">300 x 200</div>
+                <div class="title">Card Title</div>
+                <p>This is a short description about the card. It explains what the card is about in a few sentences.</p>
+                <button>Action</button>
+            </div>
+
+        </div>
+
+    </body>
+</html>

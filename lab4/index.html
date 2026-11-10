@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Dashboard</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    Oxygen,
+                    Ubuntu,
+                    Cantarell,
+                    "Open Sans",
+                    "Helvetica Neue",
+                    sans-serif;
+                background-color: #f4f6fa;
+                color: #263247;
+            }
+
+            .dashboard {
+                min-height: 100vh;
+                display: grid;
+                grid-template-columns: 220px 1fr;
+                grid-template-rows: 70px 1fr;
+                grid-template-areas:
+                    "sidebar header"
+                    "sidebar main";
+            }
+
+            .sidebar {
+                grid-area: sidebar;
+                background-color: #1e293b;
+                color: white;
+                padding: 20px 20px;
+            }
+            /* logo cadt */
+            .logo button {
+                padding: 15px;
+                font-size: 10px;
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+            /*box font*/
+            .nav {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav a {
+                text-decoration: none;
+                color: #cbd5e1;
+                padding: 12px;
+                border-radius: 6px;
+            }
+
+            .nav a.active {
+                background-color: #334155;
+                color: white;
+            }
+
+            .header {
+                background-color: white;
+                padding: 15px 25px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .header h2 {
+                margin: 0;
+            }
+
+            .profile img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center top;
+            }
+
+            .main {
+                grid-area: main;
+                padding: 25px;
+                min-width: 0;
+            }
+
+            .welcome {
+                margin-bottom: 25px;
+            }
+
+            .welcome h1 {
+                margin-bottom: 5px;
+            }
+
+            .welcome p {
+                color: #64748b;
+            }
+
+            /* STATISTICS GRID */
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+
+            .stat-card {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px #0000000d;
+            }
+
+            .stat-card p {
+                color: #64748b;
+                margin: 0;
+            }
+
+            .stat-card h2 {
+                margin-bottom: 0;
+            }
+
+            /* COURSES SECTION */
+            .courses {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 20px;
+            }
+
+            .course-list,
+            .activity {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .course {
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .course:last-child {
+                border-bottom: none;
+            }
+
+            .progress {
+                width: 100%;
+                height: 8px;
+                background-color: #e2e8f0;
+                border-radius: 10px;
+                margin-top: 10px;
+                overflow: hidden;
+            }
+
+            .bar {
+                height: 100%;
+                background-color: #3b82f6;
+                border-radius: 10px;
+            }
+
+            .activity-item {
+                padding: 12px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .activity-item:last-child {
+                border-bottom: none;
+            }
+
+            /* TABLET */
+            @media screen and (max-width: 1023px) {
+                .stats {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .courses {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* MOBILE */
+            @media screen and (max-width: 600px) {
+                .dashboard {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto auto 1fr;
+                    grid-template-areas:
+                        "header"
+                        "sidebar"
+                        "main";
+                }
+
+                .sidebar {
+                    padding: 10px;
+                }
+
+                .logo {
+                    margin-bottom: 0px;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .nav {
+                    flex-direction: row;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                }
+
+                .nav a {
+                    padding: 8px;
+                    font-size: 13px;
+                }
+
+                .header {
+                    padding: 15px;
+                }
+
+                .main {
+                    padding: 15px;
+                }
+
+                .stats {
+                    grid-template-columns: 1fr;
+                }
+
+                .welcome h1 {
+                    font-size: 22px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="dashboard">
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="logo"><button> More</button></div>
+
+                <nav class="nav">
+                    <a href="#" class="active">Dashboard</a>
+                    <a href="#">My Courses</a>
+                    <a href="#">Assignments</a>
+                    <a href="#">Schedule</a>
+                    <a href="#">Settings</a>
+                </nav>
+            </aside>
+
+            <!-- HEADER -->
+            <header class="header">
+                <h2><img src="OIP.webp"></h2>
+                <div class="profile"> <img src="4x6.jpg"></div>
+            </header>
+
+            <!-- MAIN -->
+            <main class="main">
+
+                <section class="welcome">
+                    <h1>Welcome back, Ing Chunghour!</h1>
+                    <p>Here is an overview of your learning progress.</p>
+                </section>
+
+                <!-- STATISTICS -->
+                <section class="stats">
+
+                    <div class="stat-card">
+                        <p>Total Courses</p>
+                        <h2>06</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Completed</p>
+                        <h2>03</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Assignments</p>
+                        <h2>08</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Study Hours</p>
+                        <h2>24h</h2>
+                    </div>
+
+                </section>
+
+                <!-- COURSES AND ACTIVITY -->
+                <section class="courses">
+
+                    <div class="course-list">
+                        <h2>My Courses</h2>
+
+                        <div class="course">
+                            <strong>Data Structures</strong>
+                            <p>75% completed</p>
+                            <div class="progress">
+                                <div class="bar" style="width: 75%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="course">
+                            <strong>Database Management</strong>
+                            <p>50% completed</p>
+                            <div class="progress">
+                                <div class="bar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="course">
+                            <strong>Web Development</strong>
+                            <p>90% completed</p>
+                            <div class="progress">
+                                <div class="bar" style="width: 90%;"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="activity">
+                        <h2>Recent Activity</h2>
+
+                        <div class="activity-item">
+                            <strong>Assignment submitted</strong>
+                            <p>Data Structures</p>
+                        </div>
+
+                        <div class="activity-item">
+                            <strong>Course completed</strong>
+                            <p>HTML Fundamentals</p>
+                        </div>
+
+                        <div class="activity-item">
+                            <strong>New assignment</strong>
+                            <p>Database Management</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </body>
+</html>
